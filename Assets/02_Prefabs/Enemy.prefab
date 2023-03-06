@@ -354,7 +354,7 @@ Transform:
   - {fileID: 5453295426289474291}
   - {fileID: 9089042881278975759}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &8562278871087915482
 NavMeshAgent:
@@ -420,6 +420,12 @@ MonoBehaviour:
   agent: {fileID: 8562278871087915482}
   Health: 100
   Damage: 15
+  FindingRange: 20
+  ShootDelay: 2
+  DeathParticle: {fileID: 585051009141094685, guid: 1ed375ff86d9e81418d64b743ea52f66,
+    type: 3}
+  Bullet: {fileID: 4130618572574635805, guid: 7a6a284d1c3200e47aa13271be849575, type: 3}
+  Barrel: {fileID: 3053320654158597457}
   state: 0
 --- !u!1 &8315437865332766952
 GameObject:
@@ -614,6 +620,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67f716418f7ba2146a845739c7782755, type: 3}
+--- !u!4 &3053320654158597457 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 210541914490680265, guid: 67f716418f7ba2146a845739c7782755,
+    type: 3}
+  m_PrefabInstance: {fileID: 2933088229126094488}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9089042881278975759 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6239359517610320279, guid: 67f716418f7ba2146a845739c7782755,

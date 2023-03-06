@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -10,10 +11,17 @@ public class Enemy : MonoBehaviour
     [SerializeField] NavMeshAgent agent;
 
     public float Health;
-    private float baseHealth = 100;
+    private float _baseHealth = 100;
     public int Damage = 15;
+    public int FindingRange = 20;
+
+    public float ShootDelay = 2;
+    float _nextTime = 0;
+    int _callOnce = 0;
 
     public GameObject DeathParticle;
+    public GameObject Bullet;
+    public Transform Barrel;
 
     public enum State
     {
@@ -28,7 +36,7 @@ public class Enemy : MonoBehaviour
     {
         state = State.None;
         Player = GameObject.FindGameObjectsWithTag("Player").FirstOrDefault();
-        Health = baseHealth;
+        Health = _baseHealth;
     }
 
     // Update is called once per frame
@@ -49,49 +57,87 @@ public class Enemy : MonoBehaviour
 
     void IsPlayerClose()
     {
-        Debug.Log(Vector3.Distance(transform.position, Player.gameObject.transform.position));
-        //Enemy is too close to the player so stop
-        if (Vector3.Distance(transform.position, Player.gameObject.transform.position) <= 5)
-        {
-            agent.isStopped = true;
-            return;
-        }
+        float distance = Vector3.Distance(transform.position, Player.transform.position);
 
-        if (Vector3.Distance(transform.position, Player.gameObject.transform.position) <= 20)
+        if (distance <= FindingRange)
         {
             //if player is close to enemy
-            agent.SetDestination(Player.gameObject.transform.position);
             state = State.Attacking;
         }
     }
 
+    void ShootAtPlayer(Vector3 playerPos)
+    {
+        Debug.Log("Shoot!");
+        GameObject bullet = Instantiate(Bullet, Barrel.position, new Quaternion());
+        bullet.GetComponent<Bullet>().Move(playerPos);
+    }
+
     void IsPlayerLost()
     {
-        if (Vector3.Distance(transform.position, Player.gameObject.transform.position) <= 15)
+        float distance = Vector3.Distance(transform.position, Player.transform.position);
+        //Enemy is too close to the player so stop
+        //transform.rotation = Quaternion.LookRotation(Player.transform.position);
+        if (distance <= 5)
+        {
+            agent.isStopped = true;
+        }
+        else
+        {
+            agent.SetDestination(Player.transform.position);
+        }
+
+        if (distance <= FindingRange - 5)
+        {
+            Vector3 playerPos = Vector3.zero;
+
+            //start to shoot
+            if (_callOnce == 0)
+            {
+                _callOnce = 1;
+                _nextTime = Time.time + ShootDelay;
+            }
+            else if (Time.time > _nextTime - 0.5f && _callOnce == 1)
+            {
+                playerPos = Player.transform.position;
+                if (Time.time > _nextTime && _callOnce == 1)
+                {
+                    _callOnce = 0;
+                    ShootAtPlayer(playerPos);
+
+                }
+            }
+
+
+        }
+
+        if (Vector3.Distance(transform.position, Player.gameObject.transform.position) >= FindingRange + 5)
         {
             //if player has lost the enemy after an attack
             state = State.None;
         }
     }
 
-    public int Hit(int amountDamage)
+    public void Hit(int amountDamage)
     {
         if (state == State.Dead)
-            return 0;
+            return;
 
         Health -= amountDamage;
         if (Health <= 0)
         {
             state = State.Dead;
             GameObject p = Instantiate(DeathParticle, transform.position, new Quaternion(-90, 0, 0, 0));
-            Transform t = GameObject.FindGameObjectsWithTag("ParticleParent").FirstOrDefault().transform;
-            p.transform.parent = t;
+            //Transform t = GameObject.FindGameObjectsWithTag("ParticleParent").FirstOrDefault().transform;
+            //p.transform.parent = t;
             Destroy(this.gameObject);
 
-            return Random.Range(40, 60);
+            //return Random.Range(40, 60);
+            return;
+
         }
 
-        float percent = Health / baseHealth;
-        return 0;
+        float percent = Health / _baseHealth;
+        //return 0;
     }
 }

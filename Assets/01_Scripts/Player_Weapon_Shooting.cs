@@ -16,7 +16,16 @@ public class Player_Weapon_Shooting : MonoBehaviour
     private void Shoot()
     {
         RaycastHit hit;
-        Physics.Raycast(pCamera.transform.position, pCamera.transform.forward, out hit, range);
-        Debug.Log("I hit this thing : " + hit.transform.name);
+        if (Physics.Raycast(pCamera.transform.position, pCamera.transform.forward, out hit, range))
+        {
+            /*Uncomment this line when you are setting up the enemy healthbars so that the shooting
+             * script can call the healthbar reduce method*/
+            //EnemyHealth target = hit.transform.GetComponent<EnemyHealth>();
+            Debug.Log("I hit this thing : " + hit.transform.name);
+        }
+        else
+        {
+            return;
+        }
     }
 }

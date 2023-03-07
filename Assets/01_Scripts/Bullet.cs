@@ -6,6 +6,9 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     Vector3 _playerPos = Vector3.zero;
+    float _timeToDestroy = 1f;
+    float _nextTime;
+    bool callOnce;
     private void Update()
     {
             Debug.Log("Moving!");
@@ -13,8 +16,18 @@ public class Bullet : MonoBehaviour
         {
             float step = 20f * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, _playerPos, step);
-
+            if (!callOnce)
+            {
+                callOnce= true;
+                _nextTime = Time.time + _timeToDestroy;
+            }
+            if(Time.time > _nextTime)
+            {
+                Destroy(this.gameObject);
+            }
         }
+
+        
     }
 
     //private void Ontr(Collision collision)

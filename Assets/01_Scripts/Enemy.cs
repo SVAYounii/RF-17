@@ -4,6 +4,7 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using static UnityEngine.GraphicsBuffer;
 
 public class Enemy : MonoBehaviour
 {
@@ -58,7 +59,10 @@ public class Enemy : MonoBehaviour
     void IsPlayerClose()
     {
         float distance = Vector3.Distance(transform.position, Player.transform.position);
-
+        if (agent.isStopped)
+        {
+            agent.isStopped = false;
+        }
         if (distance <= FindingRange)
         {
             //if player is close to enemy
@@ -81,10 +85,19 @@ public class Enemy : MonoBehaviour
         if (distance <= 5)
         {
             agent.isStopped = true;
+            Vector3 _direction = (Player.transform.position - transform.position).normalized;
+
+            //create the rotation we need to be in to look at the target
+            Quaternion _lookRotation = Quaternion.LookRotation(_direction);
+
+            //rotate us over time according to speed until we are in the required rotation
+            transform.rotation = Quaternion.Slerp(transform.rotation, _lookRotation, Time.deltaTime * 2f);
         }
         else
         {
+            agent.isStopped = false;
             agent.SetDestination(Player.transform.position);
+
         }
 
         if (distance <= FindingRange - 5)
@@ -97,7 +110,7 @@ public class Enemy : MonoBehaviour
                 _callOnce = 1;
                 _nextTime = Time.time + ShootDelay;
             }
-            else if (Time.time > _nextTime - 0.5f && _callOnce == 1)
+            else if (Time.time > _nextTime - 1f && _callOnce == 1)
             {
                 playerPos = Player.transform.position;
                 if (Time.time > _nextTime && _callOnce == 1)
@@ -111,7 +124,7 @@ public class Enemy : MonoBehaviour
 
         }
 
-        if (Vector3.Distance(transform.position, Player.gameObject.transform.position) >= FindingRange + 5)
+        if (distance >= FindingRange + 5)
         {
             //if player has lost the enemy after an attack
             state = State.None;

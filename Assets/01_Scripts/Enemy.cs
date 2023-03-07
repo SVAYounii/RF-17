@@ -82,7 +82,7 @@ public class Enemy : MonoBehaviour
         float distance = Vector3.Distance(transform.position, Player.transform.position);
         //Enemy is too close to the player so stop
         //transform.rotation = Quaternion.LookRotation(Player.transform.position);
-        if (distance <= 5)
+        if (distance <= 10)
         {
             agent.isStopped = true;
             Vector3 _direction = (Player.transform.position - transform.position).normalized;

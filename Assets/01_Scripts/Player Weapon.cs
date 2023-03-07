@@ -2,14 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player_Weapon_Shooting : MonoBehaviour
+public class PlayerWeapon : MonoBehaviour
 {
     [SerializeField] Camera pCamera;
     [SerializeField] float range=100f;
     [SerializeField] int damage=10;
     [SerializeField] int maxAmmo = 30;
-    private int currentAmmo;
+    [SerializeField] int currentAmmo;
     [SerializeField] int storedAmmo;
+    private float timePassed;
+    [SerializeField] float fireRate=0.2f;
     private void Start()
     {
         currentAmmo = maxAmmo;
@@ -17,16 +19,18 @@ public class Player_Weapon_Shooting : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        timePassed += Time.deltaTime;
+        if (Input.GetButton("Fire1")&&timePassed>fireRate)
         {
             Shoot();
+            timePassed= 0;
         }
     }
     private void Shoot()
     {
-        if (currentAmmo <= 0)
+        if (currentAmmo > 0)
         {
-            currentAmmo = -1;
+            currentAmmo -= 1;
             RaycastHit hit;
             if (Physics.Raycast(pCamera.transform.position, pCamera.transform.forward, out hit, range))
             {
@@ -51,13 +55,13 @@ public class Player_Weapon_Shooting : MonoBehaviour
         int missingAmmo = maxAmmo - currentAmmo;
         if (storedAmmo - missingAmmo <= 0)
         {
-            currentAmmo =+ storedAmmo;
+            currentAmmo += storedAmmo;
             storedAmmo = 0;
         }
         else
         {
             currentAmmo += missingAmmo;
-            storedAmmo =- missingAmmo;
+            storedAmmo -= missingAmmo;
         }
     }
 }

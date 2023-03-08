@@ -7,6 +7,7 @@ public class MouseComponent : MonoBehaviour
     public float mouseSensitivity = 100f;
     public Transform playerBody;
     float xRotation = 0f;
+    float yRotation = 0f;
 
     void Start()
     {
@@ -18,9 +19,12 @@ public class MouseComponent : MonoBehaviour
     {
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90, 90f);
-        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-        playerBody.Rotate(Vector3.up * mouseX);
+        xRotation += mouseX;
+
+        yRotation += mouseY;
+        yRotation = Mathf.Clamp(xRotation, -90, 90f);
+
+        transform.localRotation = Quaternion.Euler(0f, xRotation, 0f);
+        playerBody.Rotate(Vector3.up * yRotation);
     }
 }

@@ -12,6 +12,8 @@ public class PlayerWeapon : MonoBehaviour
     [SerializeField] int storedAmmo;
     private float timePassed;
     [SerializeField] float fireRate=0.2f;
+    [SerializeField] ParticleSystem muzzleFlash;
+    [SerializeField] GameObject hitEffect;
     private void Start()
     {
         currentAmmo = maxAmmo;
@@ -23,17 +25,23 @@ public class PlayerWeapon : MonoBehaviour
         if (Input.GetButton("Fire1")&&timePassed>fireRate)
         {
             Shoot();
-            timePassed= 0;
+            timePassed = 0;
+        }
+        if (Input.GetButton("Reload"))
+        {
+            Reload();
         }
     }
     private void Shoot()
     {
         if (currentAmmo > 0)
         {
+            PlayMuzzleFlash();
             currentAmmo -= 1;
             RaycastHit hit;
             if (Physics.Raycast(pCamera.transform.position, pCamera.transform.forward, out hit, range))
             {
+                CreateHitImpact(hit);
                 Enemy target = hit.transform.GetComponent<Enemy>();
                 if (target == null)
                     return;
@@ -53,7 +61,11 @@ public class PlayerWeapon : MonoBehaviour
     private void Reload()
     {
         int missingAmmo = maxAmmo - currentAmmo;
-        if (storedAmmo - missingAmmo <= 0)
+        if (missingAmmo == 0)
+        {
+            return;
+        }
+        else if (storedAmmo - missingAmmo <= 0)
         {
             currentAmmo += storedAmmo;
             storedAmmo = 0;
@@ -63,5 +75,14 @@ public class PlayerWeapon : MonoBehaviour
             currentAmmo += missingAmmo;
             storedAmmo -= missingAmmo;
         }
+    }
+    private void PlayMuzzleFlash()
+    {
+        muzzleFlash.Play();
+    }
+    private void CreateHitImpact(RaycastHit hit)
+    {
+        GameObject impact = Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
+        Destroy(impact,.1f);
     }
 }

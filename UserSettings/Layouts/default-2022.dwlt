@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 820.8
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Scene
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 40
+  controlID: 94
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -698,9 +698,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 8.194748, y: 6.0014777, z: -2.8763843}
+    m_Target: {x: 0.013079651, y: 5.715358, z: -1.5853393}
     speed: 2
-    m_Value: {x: 8.194748, y: 6.0014777, z: -2.8763843}
+    m_Value: {x: 0.013079637, y: 5.715358, z: -1.5853393}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -746,13 +746,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.524
   m_Rotation:
-    m_Target: {x: 0.17423542, y: -0.35670185, z: 0.065818414, w: 0.9163095}
+    m_Target: {x: 0.15574676, y: 0.017332258, z: -0.003219579, w: 0.98844975}
     speed: 2
-    m_Value: {x: 0.17429714, y: -0.35367745, z: 0.0652449, w: 0.91666573}
+    m_Value: {x: 0.15562688, y: 0.015836893, z: -0.0029835682, w: 0.98768437}
   m_Size:
     m_Target: 1.6740825
     speed: 2
-    m_Value: 1.752966
+    m_Value: 1.6740825
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -813,10 +813,10 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 0671ffff
-      m_LastClickedID: -36602
-      m_ExpandedIDs: 5a9cfeff609cfeffc49dfeff169efeffcca3feff6ab5feffbcb5feffae30ffff3e4affff644affff844affff964affffa44affffc24affffe04affff004bffff1074ffffc675ffffd275ffffee75fffffe75ffff0a76ffff2676ffff4276ffff5e76ffff0477ffff5277ffff9077ffff7e86ffff0e8affff30caffff30f7ffffd06c0000e8990000629c0000
+      scrollPos: {x: 0, y: 2193.2}
+      m_SelectedIDs: d4b9ffff
+      m_LastClickedID: -17964
+      m_ExpandedIDs: a6cdffff2afbffffe28b0000229500004a950000deaf0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1021,23 +1021,23 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/03_Materials
+    - Assets/Asset Bundles/WeaponsCrate
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets/03_Materials
+  - Assets/Asset Bundles/WeaponsCrate
   m_LastFoldersGridSize: 96
   m_LastProjectPath: C:\Users\Mihnea\OneDrive\Documente\GitHub\RF-17
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: d67e0000
-    m_LastClickedID: 32470
-    m_ExpandedIDs: 00000000f02b00003a7d0000da7e0000e07e0000e27e0000e47e0000e87e00008e7f0000a67f0000629e0000649e00006ea4000000ca9a3b
+    scrollPos: {x: 0, y: 95}
+    m_SelectedIDs: 96840000
+    m_LastClickedID: 33942
+    m_ExpandedIDs: 0000000002820000368400009684000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1065,7 +1065,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000003a7d0000
+    m_ExpandedIDs: 0000000002820000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

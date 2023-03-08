@@ -34,6 +34,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 1
+
   m_Script: {fileID: 12014, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -933,7 +934,6 @@ MonoBehaviour:
       height: 1184.353
     m_MinimalGUI: 1
   m_defaultScale: 0.51927084
-  m_LastWindowPixelSize: {x: 997, y: 636}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000

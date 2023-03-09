@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 5646944387236610049}
   - component: {fileID: 5646944387236610050}
   - component: {fileID: 5646944387236610051}
-  - component: {fileID: 4808658072427410039}
-  - component: {fileID: -1244763269040692249}
+  - component: {fileID: 3379578410479219501}
+  - component: {fileID: -6553463932484147978}
   m_Layer: 0
-  m_Name: LAB_KEYCARD
+  m_Name: BLUE_KEYCARD
   m_TagString: Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 20319122bc771db4f98ec95be32cbf15, type: 2}
+  - {fileID: 2100000, guid: 202c7f1f9af736940855dd2e028162fe, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -85,7 +85,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4808658072427410039
+--- !u!114 &3379578410479219501
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,8 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d975e476d7ac1ec49a034823057fd806, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyCard: 2
---- !u!65 &-1244763269040692249
+  keyCard: 3
+--- !u!65 &-6553463932484147978
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -43,6 +43,8 @@ public class Door : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (this.IsOpen) { return; }
+
         if (other.gameObject.tag == "Player")
         { 
             Debug.Log("Player in");

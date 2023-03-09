@@ -11,23 +11,23 @@ public class Bullet : MonoBehaviour
     bool callOnce;
     private void Update()
     {
-            Debug.Log("Moving!");
+        Debug.Log("Moving!");
         if (_playerPos != Vector3.zero)
         {
             float step = 20f * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, _playerPos, step);
             if (!callOnce)
             {
-                callOnce= true;
+                callOnce = true;
                 _nextTime = Time.time + _timeToDestroy;
             }
-            if(Time.time > _nextTime)
+            if (Time.time > _nextTime)
             {
                 Destroy(this.gameObject);
             }
         }
 
-        
+
     }
 
     //private void Ontr(Collision collision)
@@ -43,10 +43,16 @@ public class Bullet : MonoBehaviour
     //    //    GameObject.FindGameObjectsWithTag("Player").FirstOrDefault().GetComponent<PlayerInfo>().Money += money;
     //    Destroy(this.gameObject);
     //}
-    private void OnTriggerEnter(Collider other)
+
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.gameObject.tag != "Player")
+        if (collision.gameObject.tag != "Player")
+        {
+            Debug.Log("object!");
+
+            Destroy(this.gameObject);
             return;
+        }
 
         /*int money =*/
 
@@ -59,6 +65,6 @@ public class Bullet : MonoBehaviour
 
     public void Move(Vector3 playerPos)
     {
-        _playerPos= playerPos;
+        _playerPos = playerPos;
     }
 }

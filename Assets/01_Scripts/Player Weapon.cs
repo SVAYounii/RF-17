@@ -1,28 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public class PlayerWeapon : MonoBehaviour
 {
     [SerializeField] Camera pCamera;
-    [SerializeField] float range=100f;
-    [SerializeField] int damage=10;
+    [SerializeField] float range = 100f;
+    [SerializeField] int damage = 10;
     [SerializeField] int maxAmmo = 30;
     [SerializeField] int currentAmmo;
     [SerializeField] int storedAmmo;
     private float timePassed;
-    [SerializeField] float fireRate=0.2f;
+    [SerializeField] float fireRate = 0.2f;
     [SerializeField] ParticleSystem muzzleFlash;
     [SerializeField] GameObject hitEffect;
+
+    [SerializeField] TextMeshProUGUI AmmoText;
     private void Start()
     {
         currentAmmo = maxAmmo;
         pCamera = Camera.main;
+
     }
     void Update()
     {
         timePassed += Time.deltaTime;
-        if (Input.GetButton("Fire1")&&timePassed>fireRate)
+        if (Input.GetButton("Fire1") && timePassed > fireRate)
         {
             Shoot();
             timePassed = 0;
@@ -31,6 +36,8 @@ public class PlayerWeapon : MonoBehaviour
         {
             Reload();
         }
+        UpdateAmmoUI();
+
     }
     private void Shoot()
     {
@@ -83,6 +90,11 @@ public class PlayerWeapon : MonoBehaviour
     private void CreateHitImpact(RaycastHit hit)
     {
         GameObject impact = Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
-        Destroy(impact,.1f);
+        Destroy(impact, .1f);
+    }
+
+    public void UpdateAmmoUI()
+    {
+        AmmoText.text = currentAmmo.ToString() + "/" + storedAmmo.ToString();
     }
 }

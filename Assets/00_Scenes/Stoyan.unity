@@ -756,10 +756,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 19414004441614616, guid: 29cc2acd222699540a092ac2a60d1748,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 19414004441614617, guid: 29cc2acd222699540a092ac2a60d1748,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 19414004441614617, guid: 29cc2acd222699540a092ac2a60d1748,
         type: 3}
@@ -814,15 +819,30 @@ PrefabInstance:
     - target: {fileID: 19414004441614618, guid: 29cc2acd222699540a092ac2a60d1748,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 19414004753776801, guid: 29cc2acd222699540a092ac2a60d1748,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19414004753776802, guid: 29cc2acd222699540a092ac2a60d1748,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 19414004441614619, guid: 29cc2acd222699540a092ac2a60d1748, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 19414004441614617, guid: 29cc2acd222699540a092ac2a60d1748,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 941896280}
+    - targetCorrespondingSourceObject: {fileID: 19414004441614617, guid: 29cc2acd222699540a092ac2a60d1748,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1432793146}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 19414004441614616, guid: 29cc2acd222699540a092ac2a60d1748,
         type: 3}
@@ -966,7 +986,7 @@ PrefabInstance:
     - target: {fileID: 6205427424512483151, guid: 0ef31cdbe65a2f142beeb86422e34425,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6205427424512483151, guid: 0ef31cdbe65a2f142beeb86422e34425,
         type: 3}
@@ -1171,12 +1191,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1190255124}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6aad47b8e0048c54a901516147a8d8e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 0}
+  controller: {fileID: 1190255125}
   speed: 12
   gravity: -9.81
   jump: 1
@@ -1379,7 +1399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f96d42c530f35b24f9027be1c92071f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraPosition: {fileID: 2093649545}
+  cameraPosition: {fileID: 1986850073}
 --- !u!4 &1432793146
 Transform:
   m_ObjectHideFlags: 0
@@ -1387,14 +1407,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1432793144}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1193006261}
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_Father: {fileID: 1190255130}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1523101220 stripped
 Transform:
@@ -1413,6 +1433,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6975497155788886916, guid: 67f716418f7ba2146a845739c7782755,
     type: 3}
   m_PrefabInstance: {fileID: 2128079120}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1986850073 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 19414005801795633, guid: 29cc2acd222699540a092ac2a60d1748,
+    type: 3}
+  m_PrefabInstance: {fileID: 905380607}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2015582580
 PrefabInstance:

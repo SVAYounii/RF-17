@@ -60,8 +60,12 @@ public class PlayerInfo : MonoBehaviour
     }
 
     public bool HasKeyCard(DoorKeyCard card) { 
-        var result = this.doorKeyCards.Contains(card);
+        if (card.Equals(DoorKeyCard.None))
+        {
+            return true;
+        }
 
+        var result = this.doorKeyCards.Contains(card);
         if (result)
         {
             this.doorKeyCards.Remove(card);

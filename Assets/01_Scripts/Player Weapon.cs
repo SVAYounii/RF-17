@@ -95,6 +95,9 @@ public class PlayerWeapon : MonoBehaviour
 
     public void UpdateAmmoUI()
     {
-        AmmoText.text = currentAmmo.ToString() + "/" + storedAmmo.ToString();
+        if (AmmoText != null)
+        {
+            AmmoText.text = currentAmmo.ToString() + "/" + storedAmmo.ToString();
+        }
     }
 }

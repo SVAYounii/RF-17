@@ -13624,6 +13624,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3050719848653078713, guid: 29cc2acd222699540a092ac2a60d1748,
+        type: 3}
+      propertyPath: AmmoText
+      value: 
+      objectReference: {fileID: 1703347281}
     - target: {fileID: 3050719848754413396, guid: 29cc2acd222699540a092ac2a60d1748,
         type: 3}
       propertyPath: m_IsTrigger
@@ -63762,7 +63767,7 @@ GameObject:
   - component: {fileID: 1703347282}
   - component: {fileID: 1703347281}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: AmmoText
   m_TagString: Ammo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

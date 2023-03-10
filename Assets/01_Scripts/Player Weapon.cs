@@ -100,4 +100,10 @@ public class PlayerWeapon : MonoBehaviour
             AmmoText.text = currentAmmo.ToString() + "/" + storedAmmo.ToString();
         }
     }
+
+    public void resetstoredammo()
+    {
+
+        storedAmmo = 90;
+    }
 }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +17,7 @@ public class PlayerInfo : MonoBehaviour
     public List<DoorKeyCard> doorKeyCards = new List<DoorKeyCard>();
 
     [SerializeField] Image HealthGUI;
+    public GameObject DeathGUI;
     [SerializeField] TextMeshProUGUI RedCardText;
     [SerializeField] TextMeshProUGUI YellowCardText;
     [SerializeField] TextMeshProUGUI BlueCardText;
@@ -47,14 +49,23 @@ public class PlayerInfo : MonoBehaviour
         currentHealth -= damage;
         if(currentHealth <= 0) 
         {
-            state = State.Dead;
+            Dead();
             return;
         }
         float percent = currentHealth / playerHealth;
         HealthGUI.fillAmount = percent;
 
     }
+    void Dead()
+    {
+        state = State.Dead;
+        DeathGUI.SetActive(true);
+        Time.timeScale = 0;
+        this.gameObject.GetComponent<PlayerMovementReplacement>().enabled = false;
+        Camera.main.GetComponent<MouseLook>().enabled = false;
+        Cursor.lockState = CursorLockMode.None;
 
+    }
     public void HealUp(int heal)
     {
         if (state == State.Alive)

@@ -4830,7 +4830,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 133863585}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1918069827}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: ExitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &133863585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13634,6 +13646,11 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5380151921454177780, guid: 29cc2acd222699540a092ac2a60d1748,
+        type: 3}
+      propertyPath: DeathGUI
+      value: 
+      objectReference: {fileID: 1135701111}
     - target: {fileID: 5380151921454177780, guid: 29cc2acd222699540a092ac2a60d1748,
         type: 3}
       propertyPath: HealthGUI
@@ -67379,7 +67396,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1799900474}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1918069827}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: PlayGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1799900474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71735,6 +71764,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1918069826}
   - component: {fileID: 1918069825}
+  - component: {fileID: 1918069827}
   m_Layer: 0
   m_Name: Wave Manager
   m_TagString: Wave
@@ -71792,6 +71822,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1918069827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918069824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79a8e6ccf97eafc4bb7d1ff5e269352b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1921231150 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3452931867044665262, guid: 32467b8dc355cd04da356b17dbac4f29,

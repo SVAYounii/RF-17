@@ -17,11 +17,22 @@ public class PlayerInfo : MonoBehaviour
     public List<DoorKeyCard> doorKeyCards = new List<DoorKeyCard>();
 
     [SerializeField] Image HealthGUI;
-
     [SerializeField] TextMeshProUGUI RedCardText;
     [SerializeField] TextMeshProUGUI YellowCardText;
     [SerializeField] TextMeshProUGUI BlueCardText;
+    [SerializeField] TextMeshProUGUI InteractKeyText;
 
+    private bool isPickUpActive = false;
+    public bool IsPickupActive
+    {
+        get => this.isPickUpActive;
+        set
+        {
+            this.isPickUpActive = value;
+            this.RefreshCardGUI();
+            Debug.Log("VALUE SET");
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -88,7 +99,13 @@ public class PlayerInfo : MonoBehaviour
 
     public bool AddKeyCard(DoorKeyCard card)
     {
+        if (card.Equals(DoorKeyCard.None))
+        {
+            return true;
+        }
+
         this.doorKeyCards.Add(card);
+        this.isPickUpActive = false;
         this.RefreshCardGUI();
         return true;
     }
@@ -121,11 +138,23 @@ public class PlayerInfo : MonoBehaviour
         }
         if (this.YellowCardText != null)
         {
-            this.YellowCardText.text= yellow.ToString();
+            this.YellowCardText.text = yellow.ToString();
         }
         if (this.BlueCardText != null)
         {
             this.BlueCardText.text = blue.ToString();
+        }
+
+        if (this.InteractKeyText != null)
+        {
+            if (this.IsPickupActive)
+            {
+                this.InteractKeyText.text = "Press [F]";
+            }
+            else
+            {
+                this.InteractKeyText.text = "";
+            }
         }
     }
 }

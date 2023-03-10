@@ -1,10 +1,12 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerInfo : MonoBehaviour
 {
-    [SerializeField] int playerHealth;
+    [SerializeField] float playerHealth;
+    float currentHealth;
     public enum State
     {
         Alive,
@@ -13,6 +15,7 @@ public class PlayerInfo : MonoBehaviour
     public State state;
     public List<DoorKeyCard> doorKeyCards = new List<DoorKeyCard>();
 
+    [SerializeField] Image HealthGUI;
     [SerializeField] TextMeshProUGUI RedCardText;
     [SerializeField] TextMeshProUGUI YellowCardText;
     [SerializeField] TextMeshProUGUI BlueCardText;
@@ -28,11 +31,11 @@ public class PlayerInfo : MonoBehaviour
             this.RefreshCardGUI();
         }
     }
-
     // Start is called before the first frame update
     void Start()
     {
         this.RefreshCardGUI();
+        currentHealth = playerHealth;
     }
 
     public void TakeDamage(int damage)
@@ -41,32 +44,37 @@ public class PlayerInfo : MonoBehaviour
         {
             return;
         }
-        playerHealth -= damage;
-        if (playerHealth <= 0)
+        currentHealth -= damage;
+        if(currentHealth <= 0) 
         {
             state = State.Dead;
             return;
         }
+        float percent = currentHealth / playerHealth;
+        HealthGUI.fillAmount = percent;
+
     }
 
     public void HealUp(int heal)
     {
         if (state == State.Alive)
         {
-            if (playerHealth + heal > 100)
+            if(currentHealth + heal > 100) 
             {
-                playerHealth = 100;
+                currentHealth = 100;
             }
             else
             {
-                playerHealth += heal;
+                currentHealth += heal;
             }
             return;
         }
+
+        float percent = currentHealth / playerHealth;
+        HealthGUI.fillAmount = percent;
     }
 
-    public bool HasKeyCard(DoorKeyCard card)
-    {
+    public bool HasKeyCard(DoorKeyCard card) { 
         if (card.Equals(DoorKeyCard.None))
         {
             return true;

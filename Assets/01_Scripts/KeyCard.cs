@@ -8,12 +8,6 @@ public class KeyCard : MonoBehaviour
     private bool isPickUpActive = false;
     private GameObject playerRef = null;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -23,7 +17,6 @@ public class KeyCard : MonoBehaviour
             {
                 this.isPickUpActive = false;
                 this.playerRef.GetComponent<PlayerInfo>().AddKeyCard(this.keyCard);
-                // this.playerRef.GetComponent<PlayerInfo>().IsPickupActive = isPickUpActive;
                 Object.Destroy(this.gameObject);
             }
         }

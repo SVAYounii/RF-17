@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -27,7 +26,6 @@ public class PlayerInfo : MonoBehaviour
         {
             this.isPickUpActive = value;
             this.RefreshCardGUI();
-            Debug.Log("VALUE SET");
         }
     }
 
@@ -35,12 +33,6 @@ public class PlayerInfo : MonoBehaviour
     void Start()
     {
         this.RefreshCardGUI();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public void TakeDamage(int damage)
@@ -111,43 +103,22 @@ public class PlayerInfo : MonoBehaviour
 
         foreach (var card in this.doorKeyCards)
         {
-            if (card.Equals(DoorKeyCard.Red))
-            {
+            if (card.Equals(DoorKeyCard.Red)) 
                 red++;
-            }
             if (card.Equals(DoorKeyCard.Yellow))
-            {
                 yellow++;
-            }
             if (card.Equals(DoorKeyCard.Blue))
-            {
                 blue++;
-            }
         }
 
         if (this.RedCardText != null)
-        {
             this.RedCardText.text = red.ToString();
-        }
         if (this.YellowCardText != null)
-        {
             this.YellowCardText.text = yellow.ToString();
-        }
         if (this.BlueCardText != null)
-        {
             this.BlueCardText.text = blue.ToString();
-        }
 
         if (this.InteractKeyText != null)
-        {
-            if (this.IsPickupActive)
-            {
-                this.InteractKeyText.text = "Press [F]";
-            }
-            else
-            {
-                this.InteractKeyText.text = "";
-            }
-        }
+            this.InteractKeyText.text = this.IsPickupActive ? "Press [F]" : "";
     }
 }

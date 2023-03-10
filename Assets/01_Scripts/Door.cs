@@ -17,12 +17,6 @@ public class Door : MonoBehaviour
     public DoorKeyCard AcceptedKeyCard;
     public bool IsOpen = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-           
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -31,8 +25,6 @@ public class Door : MonoBehaviour
             var localPosition = new Vector3(0, 0, 0);
             var localRotation = new Quaternion(0,0,0,0);
             this.MovingDoor.transform.GetLocalPositionAndRotation(out localPosition, out localRotation);
-
-            Debug.Log(localPosition.y);
 
             if (localPosition.y <= 4.25)
             {

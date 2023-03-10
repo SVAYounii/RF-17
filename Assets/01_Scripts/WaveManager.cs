@@ -24,6 +24,7 @@ public class WaveManager : MonoBehaviour
 
     public TextMeshProUGUI EnemyText;
     public TextMeshProUGUI CounterText;
+    public TextMeshProUGUI WaveCounter;
 
 
 
@@ -65,13 +66,13 @@ public class WaveManager : MonoBehaviour
         }
         EnemiesLeft = transform.childCount;
         EnemyText.text = EnemiesLeft.ToString();
-        CounterText.text = "0:" + CurrentTime.ToString("F0");
+        CounterText.text = CurrentTime.ToString("F0");
     }
 
     void Spawn()
     {
         Wave++;
-
+        WaveCounter.text = "Wave: " + Wave;
         IsInWave = true;
         CurrentTime = Timer;
 

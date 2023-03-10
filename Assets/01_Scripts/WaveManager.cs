@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
 using TMPro;
 using UnityEngine;
 
@@ -25,8 +23,6 @@ public class WaveManager : MonoBehaviour
     public TextMeshProUGUI EnemyText;
     public TextMeshProUGUI CounterText;
     public TextMeshProUGUI WaveCounter;
-
-
 
     // Start is called before the first frame update
     void Start()
@@ -99,11 +95,5 @@ public class WaveManager : MonoBehaviour
                 e.transform.parent = transform;
             }
         }
-
-
-
     }
-
-
-
 }

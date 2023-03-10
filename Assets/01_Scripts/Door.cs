@@ -23,7 +23,6 @@ public class Door : MonoBehaviour
     void Start()
     {
         waveManager = GameObject.FindGameObjectsWithTag("Wave").FirstOrDefault().GetComponent<WaveManager>();
-
     }
 
     // Update is called once per frame
@@ -34,8 +33,6 @@ public class Door : MonoBehaviour
             var localPosition = new Vector3(0, 0, 0);
             var localRotation = new Quaternion(0,0,0,0);
             this.MovingDoor.transform.GetLocalPositionAndRotation(out localPosition, out localRotation);
-
-            Debug.Log(localPosition.y);
 
             if (localPosition.y <= 4.25)
             {

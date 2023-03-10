@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -16,11 +17,13 @@ public class Door : MonoBehaviour
     public GameObject MovingDoor;
     public DoorKeyCard AcceptedKeyCard;
     public bool IsOpen = false;
+    public WaveManager waveManager;
 
     // Start is called before the first frame update
     void Start()
     {
-           
+        waveManager = GameObject.FindGameObjectsWithTag("Wave").FirstOrDefault().GetComponent<WaveManager>();
+
     }
 
     // Update is called once per frame
@@ -37,6 +40,11 @@ public class Door : MonoBehaviour
             if (localPosition.y <= 4.25)
             {
                 this.MovingDoor.transform.Translate(Vector3.up * Time.deltaTime, Space.Self);
+            }
+
+            if (this.AcceptedKeyCard == DoorKeyCard.Blue && this.IsOpen && !waveManager.RoomOne)
+            {
+                waveManager.RoomOne = true;
             }
         }
     }

@@ -56,7 +56,7 @@ public class Bullet : MonoBehaviour
 
         /*int money =*/
 
-        //collision.gameObject.GetComponent<Enemy>().Hit(55);
+        collision.gameObject.GetComponent<PlayerInfo>().TakeDamage(10);
         Debug.Log("Player Got Hit!");
         //if (money > 0)
         //    GameObject.FindGameObjectsWithTag("Player").FirstOrDefault().GetComponent<PlayerInfo>().Money += money;

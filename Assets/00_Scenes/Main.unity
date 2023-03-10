@@ -4410,6 +4410,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6257800485735965347, guid: cf8443763fc34314490f8a3e2f94dd37,
         type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6257800485735965347, guid: cf8443763fc34314490f8a3e2f94dd37,
+        type: 3}
       propertyPath: m_Name
       value: Floor Tile 01 (62)
       objectReference: {fileID: 0}
@@ -40641,6 +40646,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ceiling Closed
       objectReference: {fileID: 0}
+    - target: {fileID: 4200837251300073573, guid: eb4b38db67a56dc469a2c2aafcc36add,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -42713,6 +42723,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1895688453}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1133175632
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1133175633}
+  m_Layer: 0
+  m_Name: Ammo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1133175633
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133175632}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1931606132}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1135379811
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44397,7 +44438,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 2147483647
+    m_Bits: 4294967295
   m_UseGeometry: 0
   m_DefaultArea: 0
   m_GenerateLinks: 0
@@ -47691,7 +47732,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 980093913f8d3084ca7da299bcb183ad, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.33
+      value: 5.97
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 980093913f8d3084ca7da299bcb183ad, type: 3}
       propertyPath: m_LocalPosition.z
@@ -72189,6 +72230,7 @@ Transform:
   - {fileID: 865418916}
   - {fileID: 1750152432}
   - {fileID: 322078046}
+  - {fileID: 1133175633}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

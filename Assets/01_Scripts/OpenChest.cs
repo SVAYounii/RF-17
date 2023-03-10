@@ -5,41 +5,29 @@ using UnityEngine;
 
 public class OpenChest : MonoBehaviour
 {
-    private GameObject playerRef = null;
-
-    // Start is called before the first frame update
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (playerRef != null)
-        {
-            Debug.Log("Press F to open the chest!");
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                MaxAmmo();
-
-            }
-        }
-    }
-
     private void OnTriggerEnter(Collider other)
     {
+       
         if (other.gameObject.tag == "Player")
         {
+            Debug.Log("Press F to open the chest!");     
+        }
+    }
 
-            this.playerRef = other.gameObject;
+    private void OnTriggerStay(Collider other)
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            PlayerWeapon weapon = other.GetComponentInChildren<PlayerWeapon>();
+            MaxAmmo(weapon);
         }
     }
 
 
-    private void MaxAmmo()
+    private void MaxAmmo(PlayerWeapon weapon)
     {
-
-        PlayerWeapon weapon = playerRef.GetComponentInChildren<PlayerWeapon>();
         weapon.resetstoredammo();
     }    
-
    
 }
 

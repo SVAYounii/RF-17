@@ -9,6 +9,7 @@ TagManager:
   - Door
   - Card
   - Wave
+  - Chest
   layers:
   - Default
   - TransparentFX

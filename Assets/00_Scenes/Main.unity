@@ -47677,6 +47677,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WeaponsCrate (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 980093913f8d3084ca7da299bcb183ad, type: 3}
+      propertyPath: m_TagString
+      value: Chest
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 980093913f8d3084ca7da299bcb183ad, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -70857,6 +70861,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 980093913f8d3084ca7da299bcb183ad, type: 3}
       propertyPath: m_Name
       value: WeaponsCrate
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 980093913f8d3084ca7da299bcb183ad, type: 3}
+      propertyPath: m_TagString
+      value: Chest
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 980093913f8d3084ca7da299bcb183ad, type: 3}
       propertyPath: m_RootOrder

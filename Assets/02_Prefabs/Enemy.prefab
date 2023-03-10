@@ -354,7 +354,7 @@ Transform:
   - {fileID: 5453295426289474291}
   - {fileID: 9089042881278975759}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &8562278871087915482
 NavMeshAgent:
@@ -419,9 +419,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 8562278871087915482}
   Health: 100
-  Damage: 15
-  FindingRange: 20
-  ShootDelay: 2
+  Damage: 20
+  FindingRange: 35
+  ShootDelay: 1.5
   DeathParticle: {fileID: 585051009141094685, guid: 1ed375ff86d9e81418d64b743ea52f66,
     type: 3}
   Bullet: {fileID: 4130618572574635805, guid: 7a6a284d1c3200e47aa13271be849575, type: 3}

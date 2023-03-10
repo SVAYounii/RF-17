@@ -8,6 +8,7 @@ TagManager:
   - Ammo
   - Door
   - Card
+  - Wave
   layers:
   - Default
   - TransparentFX
